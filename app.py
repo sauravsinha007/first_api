@@ -39,23 +39,30 @@ def add_item():
     request_data = request.get_json()
     unique_id = uuid.uuid4()
     print("request_data = ",request_data)
-    db.addItemInDb(unique_id,request_data)
-    return {"message": "item added sucessfully"}
+    if db.addItemInDb(unique_id,request_data) == True:
+       return {"message": "item added sucessfully"}
+    else:
+       return {"message": "no row effected"} 
 
 @app.post('/update-item')
 def update_item():
     request_data = request.get_json()
     print("request_data = ",request_data)
-    db.updateItemInDb(request_data)
-    return {"message": "item updated sucessfully"}
+    if db.updateItemInDb(request_data) == True:
+       return {"message": "item updated sucessfully"}
+    else:
+       return {"message": "no row effected"}  
+    
+    
 
 @app.post('/delete-item')
 def delete_item():
-    request_data 
-    = request.get_json()
+    request_data = request.get_json()
     print("request_data = ",request_data)
-    db.deleteItemFromDb(request_data)
-    return {"message": "item deleted sucessfully"}
+    if db.deleteItemFromDb(request_data) == True:
+       return {"message": "item deleted sucessfully"}
+    else:
+       return {"message": "no row effected"}
 
 #     return {"message":"Item not exist"}
 

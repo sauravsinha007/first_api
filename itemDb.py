@@ -50,8 +50,14 @@ class ItemDatabase:
         query +=  str(price) + ")"
         print("query = ",query)
         result = self.cursor.execute(query)
+        effectRow = self.cursor.rowcount
+        print(f"rowCount = {effectRow}")
         #print(f"result = {result} --- {result.messages}")
-        self.conn.commit()
+        if effectRow == 0:
+            return False
+        else:
+            self.conn.commit()
+            return True   
 
     def updateItemInDb(self,bodyObject):
         print(f"bodyObject = {bodyObject}")
@@ -72,8 +78,14 @@ class ItemDatabase:
         print("query = ",query)
 
         result = self.cursor.execute(query)
+        effectRow = self.cursor.rowcount
+        print(f"rowCount = {effectRow}")
         #print(f"result = {result} --- {result.messages}")
-        self.conn.commit()     
+        if effectRow == 0:
+            return False
+        else:
+            self.conn.commit()
+            return True     
 
     def deleteItemFromDb(self,bodyObject):
         print(f"bodyObject = {bodyObject}")
@@ -82,8 +94,14 @@ class ItemDatabase:
         query += " WHERE id = '" + itemId + "'"
         print("query = ",query)
         result = self.cursor.execute(query)
+        effectRow = self.cursor.rowcount
+        print(f"rowCount = {effectRow}")
         #print(f"result = {result} --- {result.messages}")
-        self.conn.commit()   
+        if effectRow == 0:
+            return False
+        else:
+            self.conn.commit()
+            return True  
         
 #         insert into item (id, name, price) values 
 # ('1234abcd45', 'Mango Shake', 120),
