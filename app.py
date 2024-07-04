@@ -1,10 +1,10 @@
 import uuid
 from flask import Flask, request, jsonify
 #from db import items
-from itemDb import ItemDatabase
+#from itemDb import ItemDatabase
 
 app =  Flask(__name__)
-db = ItemDatabase()
+#db = ItemDatabase()
 # items = [
 #  
 #         "name": "mango",
@@ -27,46 +27,46 @@ def index():
   return jsonify({'message': 'Hello, First API World!'})
 
 # get method
-@app.get('/get-items')
-def get_items():
-    return db.getItemsFromDb()
-    #return {"items" : items}
+# @app.get('/get-items')
+# def get_items():
+#     return db.getItemsFromDb()
+#     #return {"items" : items}
 
-#Dynamic url
-@app.get('/get-item/<string:name>')
-def get_item(name):
-    return db.getItemFromDb(name)
+# #Dynamic url
+# @app.get('/get-item/<string:name>')
+# def get_item(name):
+#     return db.getItemFromDb(name)
 
-# Post 
-@app.post('/add-item')
-def add_item():
-    request_data = request.get_json()
-    unique_id = uuid.uuid4()
-    print("request_data = ",request_data)
-    if db.addItemInDb(unique_id,request_data) == True:
-       return {"message": "item added sucessfully"}
-    else:
-       return {"message": "no row effected"} 
+# # Post 
+# @app.post('/add-item')
+# def add_item():
+#     request_data = request.get_json()
+#     unique_id = uuid.uuid4()
+#     print("request_data = ",request_data)
+#     if db.addItemInDb(unique_id,request_data) == True:
+#        return {"message": "item added sucessfully"}
+#     else:
+#        return {"message": "no row effected"} 
 
-@app.post('/update-item')
-def update_item():
-    request_data = request.get_json()
-    print("request_data = ",request_data)
-    if db.updateItemInDb(request_data) == True:
-       return {"message": "item updated sucessfully"}
-    else:
-       return {"message": "no row effected"}  
+# @app.post('/update-item')
+# def update_item():
+#     request_data = request.get_json()
+#     print("request_data = ",request_data)
+#     if db.updateItemInDb(request_data) == True:
+#        return {"message": "item updated sucessfully"}
+#     else:
+#        return {"message": "no row effected"}  
     
     
 
-@app.post('/delete-item')
-def delete_item():
-    request_data = request.get_json()
-    print("request_data = ",request_data)
-    if db.deleteItemFromDb(request_data) == True:
-       return {"message": "item deleted sucessfully"}
-    else:
-       return {"message": "no row effected"}
+# @app.post('/delete-item')
+# def delete_item():
+#     request_data = request.get_json()
+#     print("request_data = ",request_data)
+#     if db.deleteItemFromDb(request_data) == True:
+#        return {"message": "item deleted sucessfully"}
+#     else:
+#        return {"message": "no row effected"}
 
 #     return {"message":"Item not exist"}
 
