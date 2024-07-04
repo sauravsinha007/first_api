@@ -24,7 +24,7 @@ app =  Flask(__name__)
 
 @app.route("/")
 def index():
-  return jsonify({'message': 'Hello, First API World!'})
+  return jsonify({'message': 'Hello, First API 1 World!'})
 
 # get method
 # @app.get('/get-items')
