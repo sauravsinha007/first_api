@@ -1,5 +1,5 @@
 import uuid
-from flask import Flask, request
+from flask import Flask, request, jsonify
 #from db import items
 from itemDb import ItemDatabase
 
@@ -21,6 +21,10 @@ db = ItemDatabase()
 # http://127.0.0.1:5000
 
 # http://127.0.0.1:5000/get-items
+
+@app.route("/")
+def index():
+  return jsonify({'message': 'Hello, First API World!'})
 
 # get method
 @app.get('/get-items')
