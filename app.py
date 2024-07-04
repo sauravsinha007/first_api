@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from itemDb import ItemDatabase
 
 app =  Flask(__name__)
-#db = ItemDatabase()
+db = ItemDatabase()
 # items = [
 #  
 #         "name": "mango",
@@ -24,7 +24,7 @@ app =  Flask(__name__)
 
 @app.route("/")
 def index():
-  return jsonify({'message': 'Hello, First API World! open db connection code'})
+  return jsonify({'message': 'Hello, First API World! init itemDb object'})
 
 # get method
 # @app.get('/get-items')
