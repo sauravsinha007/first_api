@@ -1,7 +1,7 @@
 import uuid
 from flask import Flask, request, jsonify
 #from db import items
-#from itemDb import ItemDatabase
+from itemDb import ItemDatabase
 
 app =  Flask(__name__)
 #db = ItemDatabase()
