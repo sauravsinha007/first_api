@@ -4,7 +4,7 @@ import pyodbc
 class ItemDatabase:
     def __init__(self):
         #--- Server Connection ------
-        self.conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=cafee-demo.database.windows.net;DATABASE=cafe;UID=cafe-admin;PWD=sinha@2024')
+        self.conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=cafe-test-sa.database.windows.net;DATABASE=cafe;UID=cafe-admin;PWD=sinha@2024')
         # ---- Local Host -----
         #self.conn = pyodbc.connect('DRIVER={SQL Server};SERVER=DESKTOP-7DF645S\SQLEXPRESS;DATABASE=cafe;')
         # Using a DSN, but providing a password as well
